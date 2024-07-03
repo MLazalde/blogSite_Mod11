@@ -11,7 +11,7 @@ const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
 fb.get("/", (req, res) => {
   console.info(`${req.method} request received for notes`);
 
-  readFromFile("./db/notes.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile("../db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting notes
@@ -44,3 +44,5 @@ fb.post("/", (req, res) => {
     res.json("Error in posting feedback");
   }
 });
+
+module.exports = fb;

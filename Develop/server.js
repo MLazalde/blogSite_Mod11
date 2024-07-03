@@ -1,6 +1,10 @@
 // Import Express.js
 const express = require("express");
 
+const apiRoutes = require("./routes/apiRoutes");
+
+const htmlRoutes = require("./routes/htmlRoutes");
+
 // Initialize an instance of Express.js
 const app = express();
 
@@ -13,6 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static middleware pointing to the public folder
 app.use(express.static("public"));
+app.use('/api', apiRoutes)
+app.use('/', htmlRoutes)
 
 // listen() method is responsible for listening for incoming connections on the specified port
 app.listen(PORT, () =>
