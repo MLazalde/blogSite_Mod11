@@ -8,15 +8,15 @@ const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
 
 // GET Route for retrieving all the notes
 //http://localhost:3001/api/notes
-fb.get("/", (req, res) => {
+fb.get("/notes", (req, res) => {
   console.info(`${req.method} request received for notes`);
 
-  readFromFile("../db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting notes
 //http://localhost:3001/api/notes
-fb.post("/", (req, res) => {
+fb.post("/notes", (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to submit a note`);
 
