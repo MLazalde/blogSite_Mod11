@@ -2,7 +2,7 @@
 
 ## Description
 
-This project provides the user with a note taking application where the landing page takes you to a page where you will be able to enter to-dos, or notes with a title and text and have them saved in the application for use or record. (Future developement will include functionality to delete the notes as well)
+This project provides the user with a note taking application where the landing page takes you to a page where you will be able to enter to-dos, or notes with a title and text and have them saved in the application for use or record. Hitting the delete button will delete the note.
 
 You can visit the deployed Render site [here](https://notetakingapp-mod11.onrender.com)
 

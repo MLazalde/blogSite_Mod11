@@ -4,7 +4,11 @@ const fb = require("express").Router(); //router object
 const uuid = require("../helpers/uuid");
 
 // Helper functions for reading and writing to the JSON file
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const {
+  readFromFile,
+  readAndAppend,
+  writeToFile,
+} = require("../helpers/fsUtils");
 
 // GET Route for retrieving all the notes
 //http://localhost:3001/api/notes
@@ -43,6 +47,28 @@ fb.post("/notes", (req, res) => {
   } else {
     res.json("Error in posting feedback");
   }
+});
+
+// POST Route for submitting notes
+//http://localhost:3001/api/notes
+fb.delete("/notes/:id", (req, res) => {
+  const noteId = req.params.id;
+  console.info(
+    `${req.method} request received to delete note with id: ${noteId}`
+  );
+
+  readFromFile("./db/db.json")
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      // Create a new array of all notes except the one with the ID provided in the URL
+      const result = json.filter((note) => note.title_id !== noteId);
+
+      // Save that array to the filesystem
+      writeToFile("./db/db.json", result);
+
+      // Respond to the DELETE request
+      res.json(`Note ${noteId} has been deleted`);
+    });
 });
 
 module.exports = fb;

@@ -1,11 +1,12 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Success!!",
+        "text": "I was able to figure the delete button out. This is just me running a victory lap.",
+        "title_id": "a692"
     },
     {
-        "title": "todo",
-        "text": "check homework",
-        "title_id": "6c88"
+        "title": "Test Note",
+        "text": "Putting this note into the JSON to be able to test.",
+        "title_id": "6780"
     }
 ]
